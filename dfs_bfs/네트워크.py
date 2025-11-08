@@ -10,7 +10,6 @@ def bfs(n, computers, com, visited):
                 queue.append(idx)
                 visited.append(idx)
                 result.append(idx)            
-    
     return result
         
     
