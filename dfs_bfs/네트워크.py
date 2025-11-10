@@ -11,7 +11,6 @@ def bfs(n, computers, com, visited):
                 visited.append(idx)
                 result.append(idx)            
     return result
-        
     
 def solution(n, computers):
     visited = []

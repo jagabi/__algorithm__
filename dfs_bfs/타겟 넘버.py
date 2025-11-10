@@ -1,6 +1,5 @@
 def solution(numbers, target):
     queue = []
-
     leaves = []
     print(leaves)
     leaves.append(numbers[0])
