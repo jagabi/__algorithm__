@@ -1,0 +1,28 @@
+def solution(genres, plays):
+    lst = []
+    Dict = {}
+    genre_sum = {}
+    for i in range(len(genres)):
+        lst.append([genres[i],plays[i],i])
+        if genres[i] in genre_sum:
+            genre_sum[genres[i]] += plays[i]
+        else:
+            genre_sum[genres[i]] = plays[i]
+    Rank = []
+    for genre in genre_sum: Rank.append([genre,genre_sum[genre]])
+    Rank.sort(key = lambda x: x[1],reverse=True)
+    lst.sort(key = lambda x: x[1],reverse=True)
+    for l in lst:
+        if l[0] in Dict.keys():
+            Dict[l[0]].append([l[1],l[2]])
+        else:
+            Dict[l[0]] = [[l[1],l[2]]]
+    result = []
+    
+    for R in Rank:
+        if len(Dict[R[0]]) == 1:
+            result.append(Dict[R[0]][0][1])
+        else:
+            result.append(Dict[R[0]][0][1])
+            result.append(Dict[R[0]][1][1])
+    return result
