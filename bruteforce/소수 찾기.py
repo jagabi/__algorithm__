@@ -1,0 +1,25 @@
+from itertools import permutations
+
+def isprime(num):
+    if num == 1 or num == 0:
+        return False
+    for i in range(2,int(num**0.5)+1):
+        if num%i == 0:
+            return False    
+    return True
+    
+def solution(numbers):
+    result = 0
+    possibles = set()
+    for i in range(1, len(numbers)+1):
+        for lst in list(permutations(numbers,i)):
+            tmp = ''
+            for n in lst: tmp+=n
+            possibles.add(int(tmp))
+    
+    for num in tuple(possibles):
+        if isprime(num): 
+            #print(num, isprime(num))
+            result+=1
+        
+    return result
